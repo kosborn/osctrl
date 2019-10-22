@@ -96,7 +96,7 @@ func loadingSettings() {
 	// Logging
 	loadingLogging()
 	// Write JSON config to settings
-	if err := settingsmgr.SetAllJSON(settings.ServiceAdmin, adminConfig.Listener, adminConfig.Port, adminConfig.Host, adminConfig.Auth, adminConfig.Logging); err != nil {
+	if err := settingsmgr.SetAllJSON(settings.ServiceAdmin, adminConfig.Listener, adminConfig.Port, adminConfig.Host, adminConfig.Auth, adminConfig.Logging, adminConfig.ExtSearch); err != nil {
 		log.Fatalf("Failed to add JSON values to configuration: %v", err)
 	}
 }
