@@ -22,7 +22,8 @@ var (
 
 // ReturnedQueries to return a JSON with queries
 type ReturnedQueries struct {
-	Data []QueryJSON `json:"data"`
+	Data      []QueryJSON `json:"data"`
+	ExtSearch string      `json:"extSearch"`
 }
 
 // QueryProgress to be used to show progress for a query
@@ -125,6 +126,7 @@ func jsonQueryHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	returned := ReturnedQueries{
 		Data: qJSON,
+		ExtSearch: adminConfig.ExtSearch,
 	}
 	// Serialize JSON
 	returnedJSON, err := json.Marshal(returned)
